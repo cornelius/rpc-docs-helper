@@ -1,0 +1,14 @@
+{
+  "somecmd": [
+    {
+      "cmd": [
+        "somecmd",
+        "1075"
+      ],
+      "text": "> bitcoin-cli somecmd \"1075\""
+    },
+    {
+      "text": "> curl ..."
+    }
+  ]
+}

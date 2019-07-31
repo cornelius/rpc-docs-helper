@@ -6,7 +6,7 @@ from cli_caller import CliCaller
 
 class Generator:
     def __init__(self, cli, renderer):
-        self.cli = CliCaller(cli)
+        self.cli = cli
         self.renderer = renderer
 
     def generate_command(self, command):

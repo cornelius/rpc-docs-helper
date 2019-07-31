@@ -1,0 +1,16 @@
+clients:
+  bitcoin_cli:
+    call:
+      - bitcoin-cli
+      - -regtest
+      - $CMD
+      - $PARAMS
+  curl:
+    call:
+      - curl
+      - --data
+      - '{"method":"$CMD","params":[$PARAMS_STR]}'
+    version: 0.17.1
+    commands:
+      - cmd2
+default_client: bitcoin_cli

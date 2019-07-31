@@ -8,6 +8,7 @@ import re
 
 from cli_caller import CliCaller
 from help_parser import HelpParser
+from examples import Examples
 
 
 class Annotations:
