@@ -1,0 +1,2923 @@
+{
+  "abandontransaction": [
+    {
+      "cmd": [
+        "abandontransaction",
+        "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 63, for '1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d')"
+      },
+      "text": "> bitcoin-cli abandontransaction \"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"abandontransaction\", \"params\": [\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "abortrescan": [
+    {
+      "text": "Import a private key"
+    },
+    {
+      "cmd": [
+        "importprivkey",
+        "mykey"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid private key encoding"
+      },
+      "text": "> bitcoin-cli importprivkey \"mykey\""
+    },
+    {
+      "text": "Abort the running wallet rescan"
+    },
+    {
+      "cmd": [
+        "abortrescan"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "false"
+      },
+      "text": "> bitcoin-cli abortrescan "
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"abortrescan\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "addmultisigaddress": [
+    {
+      "text": "Add a multisig address from 2 addresses"
+    },
+    {
+      "cmd": [
+        "addmultisigaddress",
+        "2",
+        "[\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\",\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\"]"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid address: 16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5"
+      },
+      "text": "> bitcoin-cli addmultisigaddress 2 \"[\\\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\\\",\\\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\\\"]\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"addmultisigaddress\", \"params\": [2, \"[\\\"16sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\\\",\\\"171sgjn4YtPu27adkKGrdDwzRTxnRkBfKV\\\"]\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "addnode": [
+    {
+      "cmd": [
+        "addnode",
+        "192.168.0.6:8333",
+        "onetry"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli addnode \"192.168.0.6:8333\" \"onetry\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"addnode\", \"params\": [\"192.168.0.6:8333\", \"onetry\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "analyzepsbt": [
+    {
+      "cmd": [
+        "analyzepsbt",
+        "psbt"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed CDataStream::read(): end of data: unspecified iostream_category error"
+      },
+      "text": "> bitcoin-cli analyzepsbt \"psbt\""
+    }
+  ],
+  "backupwallet": [
+    {
+      "cmd": [
+        "backupwallet",
+        "backup.dat"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli backupwallet \"backup.dat\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"backupwallet\", \"params\": [\"backup.dat\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "bumpfee": [
+    {
+      "text": "Bump the fee, get the new transaction's txid"
+    },
+    {
+      "cmd": [
+        "bumpfee",
+        "<txid>"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 6, for '<txid>')"
+      },
+      "text": "> bitcoin-cli bumpfee <txid>"
+    }
+  ],
+  "clearbanned": [
+    {
+      "cmd": [
+        "clearbanned"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli clearbanned "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"clearbanned\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "combinepsbt": [
+    {
+      "cmd": [
+        "combinepsbt",
+        "[\"mybase64_1\", \"mybase64_2\", \"mybase64_3\"]"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed invalid base64"
+      },
+      "text": "> bitcoin-cli combinepsbt [\"mybase64_1\", \"mybase64_2\", \"mybase64_3\"]"
+    }
+  ],
+  "combinerawtransaction": [
+    {
+      "cmd": [
+        "combinerawtransaction",
+        "[\"myhex1\", \"myhex2\", \"myhex3\"]"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed for tx 0"
+      },
+      "text": "> bitcoin-cli combinerawtransaction [\"myhex1\", \"myhex2\", \"myhex3\"]"
+    }
+  ],
+  "converttopsbt": [
+    {
+      "text": "Create a transaction"
+    },
+    {
+      "cmd": [
+        "createrawtransaction",
+        "[{\"txid\":\"myid\",\"vout\":0}]",
+        "[{\"data\":\"00010203\"}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 4, for 'myid')"
+      },
+      "text": "> bitcoin-cli createrawtransaction \"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"[{\\\"data\\\":\\\"00010203\\\"}]\""
+    },
+    {
+      "text": "Convert the transaction to a PSBT"
+    },
+    {
+      "cmd": [
+        "converttopsbt",
+        "rawtransaction"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli converttopsbt \"rawtransaction\""
+    }
+  ],
+  "createmultisig": [
+    {
+      "text": "Create a multisig address from 2 public keys"
+    },
+    {
+      "cmd": [
+        "createmultisig",
+        "2",
+        "[\"03789ed0bb717d88f7d321a368d905e7430207ebbd82bd342cf11ae157a7ace5fd\",\"03dbc6764b8884a92e871274b87583e6d5c2a58819473e17e107ef3f6aa5a61626\"]"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"address\": \"2NGRTbZBLGV4tJ3y4Avz7sa2Dea9o93UaPH\",\n  \"redeemScript\": \"522103789ed0bb717d88f7d321a368d905e7430207ebbd82bd342cf11ae157a7ace5fd2103dbc6764b8884a92e871274b87583e6d5c2a58819473e17e107ef3f6aa5a6162652ae\"\n}"
+      },
+      "text": "> bitcoin-cli createmultisig 2 \"[\\\"03789ed0bb717d88f7d321a368d905e7430207ebbd82bd342cf11ae157a7ace5fd\\\",\\\"03dbc6764b8884a92e871274b87583e6d5c2a58819473e17e107ef3f6aa5a61626\\\"]\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"createmultisig\", \"params\": [2, \"[\\\"03789ed0bb717d88f7d321a368d905e7430207ebbd82bd342cf11ae157a7ace5fd\\\",\\\"03dbc6764b8884a92e871274b87583e6d5c2a58819473e17e107ef3f6aa5a61626\\\"]\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "createpsbt": [
+    {
+      "cmd": [
+        "createpsbt",
+        "[{\"txid\":\"myid\",\"vout\":0}]",
+        "[{\"data\":\"00010203\"}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 4, for 'myid')"
+      },
+      "text": "> bitcoin-cli createpsbt \"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"[{\\\"data\\\":\\\"00010203\\\"}]\""
+    }
+  ],
+  "createrawtransaction": [
+    {
+      "cmd": [
+        "createrawtransaction",
+        "[{\"txid\":\"myid\",\"vout\":0}]",
+        "[{\"address\":0.01}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 4, for 'myid')"
+      },
+      "text": "> bitcoin-cli createrawtransaction \"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"[{\\\"address\\\":0.01}]\""
+    },
+    {
+      "cmd": [
+        "createrawtransaction",
+        "[{\"txid\":\"myid\",\"vout\":0}]",
+        "[{\"data\":\"00010203\"}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 4, for 'myid')"
+      },
+      "text": "> bitcoin-cli createrawtransaction \"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"[{\\\"data\\\":\\\"00010203\\\"}]\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"createrawtransaction\", \"params\": [\"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\", \"[{\\\"address\\\":0.01}]\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"createrawtransaction\", \"params\": [\"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\", \"[{\\\"data\\\":\\\"00010203\\\"}]\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "createwallet": [
+    {
+      "cmd": [
+        "createwallet",
+        "testwallet"
+      ],
+      "result": {
+        "exit_code": 4,
+        "output": "Wallet testwallet already exists."
+      },
+      "text": "> bitcoin-cli createwallet \"testwallet\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"createwallet\", \"params\": [\"testwallet\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "decodepsbt": [
+    {
+      "cmd": [
+        "decodepsbt",
+        "psbt"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed CDataStream::read(): end of data: unspecified iostream_category error"
+      },
+      "text": "> bitcoin-cli decodepsbt \"psbt\""
+    }
+  ],
+  "decoderawtransaction": [
+    {
+      "cmd": [
+        "decoderawtransaction",
+        "hexstring"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli decoderawtransaction \"hexstring\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"decoderawtransaction\", \"params\": [\"hexstring\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "decodescript": [
+    {
+      "cmd": [
+        "decodescript",
+        "hexstring"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "argument must be hexadecimal string (not 'hexstring')"
+      },
+      "text": "> bitcoin-cli decodescript \"hexstring\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"decodescript\", \"params\": [\"hexstring\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "deriveaddresses": [
+    {
+      "text": "First three native segwit receive addresses"
+    },
+    {
+      "cmd": [
+        "deriveaddresses",
+        "wpkh([d34db33f/84h/0h/0h]xpub6DJ2dNUysrn5Vt36jH2KLBT2i1auw1tTSSomg8PhqNiUtx8QX2SvC9nrHu81fT41fvDUnhMjEzQgXnQjKEu3oaqMSzhSrHMxyyoEAmUHQbY/0/*)#trd0mf0l",
+        "[0,2]"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid descriptor"
+      },
+      "text": "> bitcoin-cli deriveaddresses \"wpkh([d34db33f/84h/0h/0h]xpub6DJ2dNUysrn5Vt36jH2KLBT2i1auw1tTSSomg8PhqNiUtx8QX2SvC9nrHu81fT41fvDUnhMjEzQgXnQjKEu3oaqMSzhSrHMxyyoEAmUHQbY/0/*)#trd0mf0l\" \"[0,2]\""
+    }
+  ],
+  "disconnectnode": [
+    {
+      "cmd": [
+        "disconnectnode",
+        "192.168.0.6:8333"
+      ],
+      "result": {
+        "exit_code": 29,
+        "output": "Node not found in connected nodes"
+      },
+      "text": "> bitcoin-cli disconnectnode \"192.168.0.6:8333\""
+    },
+    {
+      "cmd": [
+        "disconnectnode",
+        "",
+        "1"
+      ],
+      "result": {
+        "exit_code": 29,
+        "output": "Node not found in connected nodes"
+      },
+      "text": "> bitcoin-cli disconnectnode \"\" 1"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"disconnectnode\", \"params\": [\"192.168.0.6:8333\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"disconnectnode\", \"params\": [\"\", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "dumpprivkey": [
+    {
+      "cmd": [
+        "dumpprivkey",
+        "myaddress"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address"
+      },
+      "text": "> bitcoin-cli dumpprivkey \"myaddress\""
+    },
+    {
+      "cmd": [
+        "importprivkey",
+        "mykey"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid private key encoding"
+      },
+      "text": "> bitcoin-cli importprivkey \"mykey\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"dumpprivkey\", \"params\": [\"myaddress\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "dumpwallet": [
+    {
+      "cmd": [
+        "dumpwallet",
+        "test"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "/Users/cs/tmp/bitcoin/test already exists. If you are sure this is what you want, move it out of the way first"
+      },
+      "text": "> bitcoin-cli dumpwallet \"test\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"dumpwallet\", \"params\": [\"test\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "encryptwallet": [
+    {
+      "text": "Encrypt your wallet"
+    },
+    {
+      "cmd": [
+        "encryptwallet",
+        "my pass phrase"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an encrypted wallet, but encryptwallet was called."
+      },
+      "text": "> bitcoin-cli encryptwallet \"my pass phrase\""
+    },
+    {
+      "text": "Now set the passphrase to use the wallet, such as for signing or sending bitcoin"
+    },
+    {
+      "cmd": [
+        "walletpassphrase",
+        "my pass phrase"
+      ],
+      "result": {
+        "exit_code": 1,
+        "output": "walletpassphrase \"passphrase\" timeout\n\nStores the wallet decryption key in memory for 'timeout' seconds.\nThis is needed prior to performing transactions related to private keys such as sending bitcoins\n\nNote:\nIssuing the walletpassphrase command while the wallet is already unlocked will set a new unlock\ntime that overrides the old one.\n\nArguments:\n1. passphrase    (string, required) The wallet passphrase\n2. timeout       (numeric, required) The time to keep the decryption key in seconds; capped at 100000000 (~3 years).\n\nExamples:\n\nUnlock the wallet for 60 seconds\n> bitcoin-cli walletpassphrase \"my pass phrase\" 60\n\nLock the wallet again (before 60 seconds)\n> bitcoin-cli walletlock \n\nAs a JSON-RPC call\n> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"walletpassphrase\", \"params\": [\"my pass phrase\", 60] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+      },
+      "text": "> bitcoin-cli walletpassphrase \"my pass phrase\""
+    },
+    {
+      "text": "Now we can do something like sign"
+    },
+    {
+      "cmd": [
+        "signmessage",
+        "address",
+        "test message"
+      ],
+      "result": {
+        "exit_code": 13,
+        "output": "Error: Please enter the wallet passphrase with walletpassphrase first."
+      },
+      "text": "> bitcoin-cli signmessage \"address\" \"test message\""
+    },
+    {
+      "text": "Now lock the wallet again by removing the passphrase"
+    },
+    {
+      "cmd": [
+        "walletlock"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli walletlock "
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"encryptwallet\", \"params\": [\"my pass phrase\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "estimatesmartfee": [
+    {
+      "cmd": [
+        "estimatesmartfee",
+        "6"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"errors\": [\n    \"Insufficient data or no feerate found\"\n  ],\n  \"blocks\": 0\n}"
+      },
+      "text": "> bitcoin-cli estimatesmartfee 6"
+    }
+  ],
+  "finalizepsbt": [
+    {
+      "cmd": [
+        "finalizepsbt",
+        "psbt"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed CDataStream::read(): end of data: unspecified iostream_category error"
+      },
+      "text": "> bitcoin-cli finalizepsbt \"psbt\""
+    }
+  ],
+  "fundrawtransaction": [
+    {
+      "text": "Create a transaction with no inputs"
+    },
+    {
+      "cmd": [
+        "createrawtransaction",
+        "[]",
+        "{\"myaddress\":0.01}"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address: myaddress"
+      },
+      "text": "> bitcoin-cli createrawtransaction \"[]\" \"{\\\"myaddress\\\":0.01}\""
+    },
+    {
+      "text": "Add sufficient unsigned inputs to meet the output value"
+    },
+    {
+      "cmd": [
+        "fundrawtransaction",
+        "rawtransactionhex"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli fundrawtransaction \"rawtransactionhex\""
+    },
+    {
+      "text": "Sign the transaction"
+    },
+    {
+      "cmd": [
+        "signrawtransactionwithwallet",
+        "fundedtransactionhex"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli signrawtransactionwithwallet \"fundedtransactionhex\""
+    },
+    {
+      "text": "Send the transaction"
+    },
+    {
+      "cmd": [
+        "sendrawtransaction",
+        "signedtransactionhex"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli sendrawtransaction \"signedtransactionhex\""
+    }
+  ],
+  "generate": [
+    {
+      "text": "Generate 11 blocks"
+    },
+    {
+      "cmd": [
+        "generate",
+        "11"
+      ],
+      "result": {
+        "exit_code": 32,
+        "output": "The wallet generate rpc method is deprecated and will be fully removed in v0.19. To use generate in v0.18, restart bitcoind with -deprecatedrpc=generate.\nClients should transition to using the node rpc method generatetoaddress"
+      },
+      "text": "> bitcoin-cli generate 11"
+    }
+  ],
+  "generatetoaddress": [
+    {
+      "text": "Generate 11 blocks to myaddress"
+    },
+    {
+      "cmd": [
+        "generatetoaddress",
+        "11",
+        "myaddress"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Error: Invalid address"
+      },
+      "text": "> bitcoin-cli generatetoaddress 11 \"myaddress\""
+    },
+    {
+      "text": "If you are running the bitcoin core wallet, you can get a new address to send the newly generated bitcoin to with:"
+    },
+    {
+      "cmd": [
+        "getnewaddress"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "2NB6eZNKLsguL7TvXFWGMg5969a8WLg6RDj"
+      },
+      "text": "> bitcoin-cli getnewaddress"
+    }
+  ],
+  "getaddednodeinfo": [
+    {
+      "cmd": [
+        "getaddednodeinfo",
+        "192.168.0.201"
+      ],
+      "result": {
+        "exit_code": 24,
+        "output": "Error: Node has not been added."
+      },
+      "text": "> bitcoin-cli getaddednodeinfo \"192.168.0.201\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getaddednodeinfo\", \"params\": [\"192.168.0.201\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getaddressesbylabel": [
+    {
+      "cmd": [
+        "getaddressesbylabel",
+        "tabby"
+      ],
+      "result": {
+        "exit_code": 11,
+        "output": "No addresses with label tabby"
+      },
+      "text": "> bitcoin-cli getaddressesbylabel \"tabby\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getaddressesbylabel\", \"params\": [\"tabby\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getaddressinfo": [
+    {
+      "cmd": [
+        "getaddressinfo",
+        "1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli getaddressinfo \"1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getaddressinfo\", \"params\": [\"1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getbalance": [
+    {
+      "text": "The total amount in the wallet with 1 or more confirmations"
+    },
+    {
+      "cmd": [
+        "getbalance"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "0.00000000"
+      },
+      "text": "> bitcoin-cli getbalance "
+    },
+    {
+      "text": "The total amount in the wallet at least 6 blocks confirmed"
+    },
+    {
+      "cmd": [
+        "getbalance",
+        "*",
+        "6"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "0.00000000"
+      },
+      "text": "> bitcoin-cli getbalance \"*\" 6"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getbalance\", \"params\": [\"*\", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getbestblockhash": [
+    {
+      "cmd": [
+        "getbestblockhash"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "5966b883afd6e3b31e0b0f8c48e98cb9cbe5f0bda8a403b0d77665e30300daf9"
+      },
+      "text": "> bitcoin-cli getbestblockhash "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getbestblockhash\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getblock": [
+    {
+      "cmd": [
+        "getblock",
+        "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":{\"hash\":\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\",\"confirmations\":586608,\"strippedsize\":216,\"size\":216,\"weight\":864,\"height\":1000,\"version\":1,\"versionHex\":\"00000001\",\"merkleroot\":\"fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33\",\"tx\":[\"fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33\"],\"time\":1232346882,\"mediantime\":1232344831,\"nonce\":2595206198,\"bits\":\"1d00ffff\",\"difficulty\":1,\"chainwork\":\"00000000000000000000000000000000000000 ..."
+      },
+      "text": "> bitcoin-cli getblock \"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getblock\", \"params\": [\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getblockchaininfo": [
+    {
+      "cmd": [
+        "getblockchaininfo"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":{\"chain\":\"main\",\"blocks\":587607,\"headers\":587607,\"bestblockhash\":\"000000000000000000052691586dfec5f5847c2b3cc9a2a8694ab00ad3a457fe\",\"difficulty\":9013786945891.682,\"mediantime\":1564401153,\"verificationprogress\":0.999999978163029,\"initialblockdownload\":false,\"chainwork\":\"00000000000000000000000000000000000000000778320714a9df4c87846f40\",\"size_on_disk\":263927248273,\"pruned\":false,\"softforks\":[{\"id\":\"bip34\",\"version\":2,\"reject\":{\"status\":true}},{\"id\":\"bip66\",\"version\":3,\"reject\":{\"status\":t ..."
+      },
+      "text": "> bitcoin-cli getblockchaininfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getblockchaininfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getblockcount": [
+    {
+      "cmd": [
+        "getblockcount"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "212"
+      },
+      "text": "> bitcoin-cli getblockcount "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getblockcount\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getblockhash": [
+    {
+      "cmd": [
+        "getblockhash",
+        "1000"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Block height out of range"
+      },
+      "text": "> bitcoin-cli getblockhash 1000"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getblockhash\", \"params\": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getblockheader": [
+    {
+      "cmd": [
+        "getblockheader",
+        "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":{\"hash\":\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\",\"confirmations\":586608,\"height\":1000,\"version\":1,\"versionHex\":\"00000001\",\"merkleroot\":\"fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33\",\"time\":1232346882,\"mediantime\":1232344831,\"nonce\":2595206198,\"bits\":\"1d00ffff\",\"difficulty\":1,\"chainwork\":\"000000000000000000000000000000000000000000000000000003e903e903e9\",\"nTx\":1,\"previousblockhash\":\"0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67 ..."
+      },
+      "text": "> bitcoin-cli getblockheader \"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getblockheader\", \"params\": [\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getblockstats": [
+    {
+      "cmd": [
+        "getblockstats",
+        "1000",
+        "[\"minfeerate\",\"avgfeerate\"]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Target block height 1000 after current tip 212"
+      },
+      "text": "> bitcoin-cli getblockstats 1000 '[\"minfeerate\",\"avgfeerate\"]'"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getblockstats\", \"params\": [1000 '[\"minfeerate\",\"avgfeerate\"]'] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getblocktemplate": [
+    {
+      "cmd": [
+        "getblocktemplate",
+        "{\"rules\": [\"segwit\"]}"
+      ],
+      "result": {
+        "exit_code": 9,
+        "output": "Bitcoin is not connected!"
+      },
+      "text": "> bitcoin-cli getblocktemplate {\"rules\": [\"segwit\"]}"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getblocktemplate\", \"params\": [{\"rules\": [\"segwit\"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getchaintips": [
+    {
+      "cmd": [
+        "getchaintips"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":[{\"height\":587607,\"hash\":\"000000000000000000052691586dfec5f5847c2b3cc9a2a8694ab00ad3a457fe\",\"branchlen\":0,\"status\":\"active\"},{\"height\":584802,\"hash\":\"0000000000000000000b47042b90c6a893e6e5cdef70c92beefb88f4c5fa5a69\",\"branchlen\":1,\"status\":\"invalid\"},{\"height\":578141,\"hash\":\"0000000000000000001253a5f37d3763dbe928d21f7d72a708f05268c044179c\",\"branchlen\":1,\"status\":\"valid-fork\"},{\"height\":573313,\"hash\":\"0000000000000000000883f9f6eb9a459426f715ee3895a4dbb6e51e9237eceb\",\"branchlen\":1,\"status ..."
+      },
+      "text": "> bitcoin-cli getchaintips "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getchaintips\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getchaintxstats": [
+    {
+      "cmd": [
+        "getchaintxstats"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"time\": 1562164963,\n  \"txcount\": 213,\n  \"window_final_block_hash\": \"5966b883afd6e3b31e0b0f8c48e98cb9cbe5f0bda8a403b0d77665e30300daf9\",\n  \"window_block_count\": 211,\n  \"window_tx_count\": 211,\n  \"window_interval\": 21607276,\n  \"txrate\": 9.765229083018147e-06\n}"
+      },
+      "text": "> bitcoin-cli getchaintxstats "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getchaintxstats\", \"params\": [2016] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getconnectioncount": [
+    {
+      "cmd": [
+        "getconnectioncount"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "0"
+      },
+      "text": "> bitcoin-cli getconnectioncount "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getconnectioncount\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getdescriptorinfo": [
+    {
+      "text": "Analyse a descriptor"
+    },
+    {
+      "cmd": [
+        "getdescriptorinfo",
+        "wpkh([d34db33f/84h/0h/0h]0279be667ef9dcbbac55a06295Ce870b07029Bfcdb2dce28d959f2815b16f81798)"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"descriptor\": \"wpkh([d34db33f/84'/0'/0']0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798)#n9g43y4k\",\n  \"isrange\": false,\n  \"issolvable\": true,\n  \"hasprivatekeys\": false\n}"
+      },
+      "text": "> bitcoin-cli getdescriptorinfo \"wpkh([d34db33f/84h/0h/0h]0279be667ef9dcbbac55a06295Ce870b07029Bfcdb2dce28d959f2815b16f81798)\""
+    }
+  ],
+  "getdifficulty": [
+    {
+      "cmd": [
+        "getdifficulty"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "4.656542373906925e-10"
+      },
+      "text": "> bitcoin-cli getdifficulty "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getdifficulty\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getmemoryinfo": [
+    {
+      "cmd": [
+        "getmemoryinfo"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"locked\": {\n    \"used\": 64736,\n    \"free\": 197408,\n    \"total\": 262144,\n    \"locked\": 262144,\n    \"chunks_used\": 2020,\n    \"chunks_free\": 2\n  }\n}"
+      },
+      "text": "> bitcoin-cli getmemoryinfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getmemoryinfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getmempoolancestors": [
+    {
+      "cmd": [
+        "getmempoolancestors",
+        "mytxid"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "parameter 1 must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli getmempoolancestors \"mytxid\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getmempoolancestors\", \"params\": [\"mytxid\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getmempooldescendants": [
+    {
+      "cmd": [
+        "getmempooldescendants",
+        "mytxid"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "parameter 1 must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli getmempooldescendants \"mytxid\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getmempooldescendants\", \"params\": [\"mytxid\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getmempoolentry": [
+    {
+      "cmd": [
+        "getmempoolentry",
+        "mytxid"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "parameter 1 must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli getmempoolentry \"mytxid\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getmempoolentry\", \"params\": [\"mytxid\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getmempoolinfo": [
+    {
+      "cmd": [
+        "getmempoolinfo"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":{\"size\":9953,\"bytes\":5629410,\"usage\":22523216,\"maxmempool\":300000000,\"mempoolminfee\":0.00001000,\"minrelaytxfee\":0.00001000},\"error\":null,\"id\":1}"
+      },
+      "text": "> bitcoin-cli getmempoolinfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getmempoolinfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getmininginfo": [
+    {
+      "cmd": [
+        "getmininginfo"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":{\"blocks\":587607,\"currentblockweight\":0,\"currentblocktx\":0,\"difficulty\":9013786945891.682,\"networkhashps\":7.558967305357312e+19,\"pooledtx\":9953,\"chain\":\"main\",\"warnings\":\"Warning: Unknown block versions being mined! It's possible unknown rules are in effect\"},\"error\":null,\"id\":1}"
+      },
+      "text": "> bitcoin-cli getmininginfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getmininginfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getnettotals": [
+    {
+      "cmd": [
+        "getnettotals"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":{\"totalbytesrecv\":90001776870,\"totalbytessent\":2990555934796,\"timemillis\":1564403934354,\"uploadtarget\":{\"timeframe\":86400,\"target\":0,\"target_reached\":false,\"serve_historical_blocks\":true,\"bytes_left_in_cycle\":0,\"time_left_in_cycle\":0}},\"error\":null,\"id\":1}"
+      },
+      "text": "> bitcoin-cli getnettotals "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getnettotals\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getnetworkhashps": [
+    {
+      "cmd": [
+        "getnetworkhashps"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "1.110740504314139e-05"
+      },
+      "text": "> bitcoin-cli getnetworkhashps "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getnetworkhashps\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getnetworkinfo": [
+    {
+      "cmd": [
+        "getnetworkinfo"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"version\": 180000,\n  \"subversion\": \"/Satoshi:0.18.0/\",\n  \"protocolversion\": 70015,\n  \"localservices\": \"000000000000040d\",\n  \"localrelay\": true,\n  \"timeoffset\": 0,\n  \"networkactive\": true,\n  \"connections\": 0,\n  \"networks\": [\n    {\n      \"name\": \"ipv4\",\n      \"limited\": false,\n      \"reachable\": true,\n      \"proxy\": \"\",\n      \"proxy_randomize_credentials\": false\n    },\n    {\n      \"name\": \"ipv6\",\n      \"limited\": false,\n      \"reachable\": true,\n      \"proxy\": \"\",\n      \"proxy_randomize_credent ..."
+      },
+      "text": "> bitcoin-cli getnetworkinfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getnetworkinfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getnewaddress": [
+    {
+      "cmd": [
+        "getnewaddress"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "2MzpVsuxK4SjGioWRkmZzZSMS8Xa2vhFMi1"
+      },
+      "text": "> bitcoin-cli getnewaddress "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getnewaddress\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getnodeaddresses": [
+    {
+      "cmd": [
+        "getnodeaddresses",
+        "8"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli getnodeaddresses 8"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getnodeaddresses\", \"params\": [8] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getpeerinfo": [
+    {
+      "cmd": [
+        "getpeerinfo"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":[{\"id\":4,\"addr\":\"167.99.191.37:8333\",\"addrlocal\":\"3.210.177.194:57180\",\"addrbind\":\"172.18.0.2:57180\",\"services\":\"000000000000040d\",\"relaytxes\":true,\"lastsend\":1564403933,\"lastrecv\":1564403933,\"bytessent\":1228550081,\"bytesrecv\":969754312,\"conntime\":1557320630,\"timeoffset\":-1,\"pingtime\":0.034085,\"minping\":0.020275,\"version\":70015,\"subver\":\"/Satoshi:0.16.0/\",\"inbound\":false,\"addnode\":false,\"startingheight\":575127,\"banscore\":0,\"synced_headers\":587606,\"synced_blocks\":587606,\"inflight\":[],\"w ..."
+      },
+      "text": "> bitcoin-cli getpeerinfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getpeerinfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getrawchangeaddress": [
+    {
+      "cmd": [
+        "getrawchangeaddress"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "2MxR3iRAFew21Zm7R2oXrmsBYLfTfhKyrZC"
+      },
+      "text": "> bitcoin-cli getrawchangeaddress "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getrawchangeaddress\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getrawmempool": [
+    {
+      "cmd": [
+        "getrawmempool",
+        "true"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n}"
+      },
+      "text": "> bitcoin-cli getrawmempool true"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getrawmempool\", \"params\": [true] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getrawtransaction": [
+    {
+      "cmd": [
+        "getrawtransaction",
+        "mytxid"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "parameter 1 must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli getrawtransaction \"mytxid\""
+    },
+    {
+      "cmd": [
+        "getrawtransaction",
+        "mytxid",
+        "true"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "parameter 1 must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli getrawtransaction \"mytxid\" true"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getrawtransaction\", \"params\": [\"mytxid\", true] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    },
+    {
+      "cmd": [
+        "getrawtransaction",
+        "mytxid",
+        "false",
+        "myblockhash"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "parameter 1 must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli getrawtransaction \"mytxid\" false \"myblockhash\""
+    },
+    {
+      "cmd": [
+        "getrawtransaction",
+        "mytxid",
+        "true",
+        "myblockhash"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "parameter 1 must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli getrawtransaction \"mytxid\" true \"myblockhash\""
+    }
+  ],
+  "getreceivedbyaddress": [
+    {
+      "text": "The amount from transactions with at least 1 confirmation"
+    },
+    {
+      "cmd": [
+        "getreceivedbyaddress",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address"
+      },
+      "text": "> bitcoin-cli getreceivedbyaddress \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\""
+    },
+    {
+      "text": "The amount including unconfirmed transactions, zero confirmations"
+    },
+    {
+      "cmd": [
+        "getreceivedbyaddress",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "0"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address"
+      },
+      "text": "> bitcoin-cli getreceivedbyaddress \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" 0"
+    },
+    {
+      "text": "The amount with at least 6 confirmations"
+    },
+    {
+      "cmd": [
+        "getreceivedbyaddress",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "6"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address"
+      },
+      "text": "> bitcoin-cli getreceivedbyaddress \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" 6"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getreceivedbyaddress\", \"params\": [\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getreceivedbylabel": [
+    {
+      "text": "Amount received by the default label with at least 1 confirmation"
+    },
+    {
+      "cmd": [
+        "getreceivedbylabel"
+      ],
+      "result": {
+        "exit_code": 1,
+        "output": "getreceivedbylabel \"label\" ( minconf )\n\nReturns the total amount received by addresses with <label> in transactions with at least [minconf] confirmations.\n\nArguments:\n1. label      (string, required) The selected label, may be the default label using \"\".\n2. minconf    (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n\nResult:\namount              (numeric) The total amount in BTC received for this label.\n\nExamples:\n\nAmount received by the default label with at least 1 confirmation\n> bitcoin-cli getreceivedbylabel \"\"\n\nAmount received at the tabby label including unconfirmed amounts with zero confirmations\n> bitcoin-cli getreceivedbylabel \"tabby\" 0\n\nThe amount with at least 6 confirmations\n> bitcoin-cli getreceivedbylabel \"tabby\" 6\n\nAs a JSON-RPC call\n> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getreceivedbylabel\", \"params\": [\"tabby\", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+      },
+      "text": "> bitcoin-cli getreceivedbylabel \"\""
+    },
+    {
+      "text": "Amount received at the tabby label including unconfirmed amounts with zero confirmations"
+    },
+    {
+      "cmd": [
+        "getreceivedbylabel",
+        "tabby",
+        "0"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "0.00000000"
+      },
+      "text": "> bitcoin-cli getreceivedbylabel \"tabby\" 0"
+    },
+    {
+      "text": "The amount with at least 6 confirmations"
+    },
+    {
+      "cmd": [
+        "getreceivedbylabel",
+        "tabby",
+        "6"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "0.00000000"
+      },
+      "text": "> bitcoin-cli getreceivedbylabel \"tabby\" 6"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getreceivedbylabel\", \"params\": [\"tabby\", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getrpcinfo": [
+    {
+      "cmd": [
+        "getrpcinfo"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"active_commands\": [\n    {\n      \"method\": \"getrpcinfo\",\n      \"duration\": 2\n    }\n  ]\n}"
+      },
+      "text": "> bitcoin-cli getrpcinfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getrpcinfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "gettransaction": [
+    {
+      "cmd": [
+        "gettransaction",
+        "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 63, for '1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d')"
+      },
+      "text": "> bitcoin-cli gettransaction \"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\""
+    },
+    {
+      "cmd": [
+        "gettransaction",
+        "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d",
+        "true"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 63, for '1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d')"
+      },
+      "text": "> bitcoin-cli gettransaction \"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\" true"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"gettransaction\", \"params\": [\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "gettxout": [
+    {
+      "text": "Get unspent transactions"
+    },
+    {
+      "cmd": [
+        "listunspent"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listunspent "
+    },
+    {
+      "text": "View the details"
+    },
+    {
+      "cmd": [
+        "gettxout",
+        "txid",
+        "1"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 4, for 'txid')"
+      },
+      "text": "> bitcoin-cli gettxout \"txid\" 1"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"gettxout\", \"params\": [\"txid\", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "gettxoutproof": [],
+  "gettxoutsetinfo": [
+    {
+      "cmd": [
+        "gettxoutsetinfo"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"height\": 212,\n  \"bestblock\": \"5966b883afd6e3b31e0b0f8c48e98cb9cbe5f0bda8a403b0d77665e30300daf9\",\n  \"transactions\": 212,\n  \"txouts\": 212,\n  \"bogosize\": 15476,\n  \"hash_serialized_2\": \"5fa37686865f10c6b90b116afc255330fd1faef87aeb0809f717eebb2ee99dcb\",\n  \"disk_size\": 15133,\n  \"total_amount\": 9025.00000000\n}"
+      },
+      "text": "> bitcoin-cli gettxoutsetinfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"gettxoutsetinfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "getunconfirmedbalance": [],
+  "getwalletinfo": [
+    {
+      "cmd": [
+        "getwalletinfo"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"walletname\": \"\",\n  \"walletversion\": 169900,\n  \"balance\": 0.00000000,\n  \"unconfirmed_balance\": 0.00000000,\n  \"immature_balance\": 0.00000000,\n  \"txcount\": 0,\n  \"keypoololdest\": 1564389356,\n  \"keypoolsize\": 1000,\n  \"keypoolsize_hd_internal\": 999,\n  \"paytxfee\": 0.00001000,\n  \"hdseedid\": \"d11e0cfe7ec3cebef5739839971f3faebaa553a7\",\n  \"private_keys_enabled\": true\n}"
+      },
+      "text": "> bitcoin-cli getwalletinfo "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"getwalletinfo\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "help": [],
+  "importaddress": [
+    {
+      "text": "Import an address with rescan"
+    },
+    {
+      "cmd": [
+        "importaddress",
+        "myaddress"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address or script"
+      },
+      "text": "> bitcoin-cli importaddress \"myaddress\""
+    },
+    {
+      "text": "Import using a label without rescan"
+    },
+    {
+      "cmd": [
+        "importaddress",
+        "myaddress",
+        "testing",
+        "false"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address or script"
+      },
+      "text": "> bitcoin-cli importaddress \"myaddress\" \"testing\" false"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"importaddress\", \"params\": [\"myaddress\", \"testing\", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "importmulti": [
+    {
+      "cmd": [
+        "importmulti",
+        "[{ \"scriptPubKey\": { \"address\": \"<my address>\" }, \"timestamp\":1455191478 }, { \"scriptPubKey\": { \"address\": \"<my 2nd address>\" }, \"label\": \"example 2\", \"timestamp\": 1455191480 }]"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n  {\n    \"success\": false,\n    \"error\": {\n      \"code\": -5,\n      \"message\": \"Invalid address \\\"<my address>\\\"\"\n    }\n  },\n  {\n    \"success\": false,\n    \"error\": {\n      \"code\": -5,\n      \"message\": \"Invalid address \\\"<my 2nd address>\\\"\"\n    }\n  }\n]"
+      },
+      "text": "> bitcoin-cli importmulti '[{ \"scriptPubKey\": { \"address\": \"<my address>\" }, \"timestamp\":1455191478 }, { \"scriptPubKey\": { \"address\": \"<my 2nd address>\" }, \"label\": \"example 2\", \"timestamp\": 1455191480 }]'"
+    },
+    {
+      "cmd": [
+        "importmulti",
+        "[{ \"scriptPubKey\": { \"address\": \"<my address>\" }, \"timestamp\":1455191478 }]",
+        "{ \"rescan\": false}"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n  {\n    \"success\": false,\n    \"error\": {\n      \"code\": -5,\n      \"message\": \"Invalid address \\\"<my address>\\\"\"\n    }\n  }\n]"
+      },
+      "text": "> bitcoin-cli importmulti '[{ \"scriptPubKey\": { \"address\": \"<my address>\" }, \"timestamp\":1455191478 }]' '{ \"rescan\": false}'"
+    }
+  ],
+  "importprivkey": [
+    {
+      "text": "Dump a private key"
+    },
+    {
+      "cmd": [
+        "dumpprivkey",
+        "myaddress"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address"
+      },
+      "text": "> bitcoin-cli dumpprivkey \"myaddress\""
+    },
+    {
+      "text": "Import the private key with rescan"
+    },
+    {
+      "cmd": [
+        "importprivkey",
+        "mykey"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid private key encoding"
+      },
+      "text": "> bitcoin-cli importprivkey \"mykey\""
+    },
+    {
+      "text": "Import using a label and without rescan"
+    },
+    {
+      "cmd": [
+        "importprivkey",
+        "mykey",
+        "testing",
+        "false"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid private key encoding"
+      },
+      "text": "> bitcoin-cli importprivkey \"mykey\" \"testing\" false"
+    },
+    {
+      "text": "Import using default blank label and without rescan"
+    },
+    {
+      "cmd": [
+        "importprivkey",
+        "mykey",
+        "",
+        "false"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid private key encoding"
+      },
+      "text": "> bitcoin-cli importprivkey \"mykey\" \"\" false"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"importprivkey\", \"params\": [\"mykey\", \"testing\", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "importprunedfunds": [],
+  "importpubkey": [
+    {
+      "text": "Import a public key with rescan"
+    },
+    {
+      "cmd": [
+        "importpubkey",
+        "mypubkey"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Pubkey must be a hex string"
+      },
+      "text": "> bitcoin-cli importpubkey \"mypubkey\""
+    },
+    {
+      "text": "Import using a label without rescan"
+    },
+    {
+      "cmd": [
+        "importpubkey",
+        "mypubkey",
+        "testing",
+        "false"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Pubkey must be a hex string"
+      },
+      "text": "> bitcoin-cli importpubkey \"mypubkey\" \"testing\" false"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"importpubkey\", \"params\": [\"mypubkey\", \"testing\", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "importwallet": [
+    {
+      "text": "Dump the wallet"
+    },
+    {
+      "cmd": [
+        "dumpwallet",
+        "test"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "/Users/cs/tmp/bitcoin/test already exists. If you are sure this is what you want, move it out of the way first"
+      },
+      "text": "> bitcoin-cli dumpwallet \"test\""
+    },
+    {
+      "text": "Import the wallet"
+    },
+    {
+      "cmd": [
+        "importwallet",
+        "test"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli importwallet \"test\""
+    },
+    {
+      "text": "Import using the json rpc call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"importwallet\", \"params\": [\"test\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "joinpsbts": [
+    {
+      "cmd": [
+        "joinpsbts",
+        "psbt"
+      ],
+      "result": {
+        "exit_code": 1,
+        "output": "error: Error parsing JSON:psbt"
+      },
+      "text": "> bitcoin-cli joinpsbts \"psbt\""
+    }
+  ],
+  "keypoolrefill": [
+    {
+      "cmd": [
+        "keypoolrefill"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli keypoolrefill "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"keypoolrefill\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listaddressgroupings": [
+    {
+      "cmd": [
+        "listaddressgroupings"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listaddressgroupings "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listaddressgroupings\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listbanned": [
+    {
+      "cmd": [
+        "listbanned"
+      ],
+      "result": {
+        "client_version": "0.17.1",
+        "exit_code": 0,
+        "output": "{\"result\":[{\"address\":\"3.112.138.57/32\",\"banned_until\":1564466817,\"ban_created\":1564380417,\"ban_reason\":\"node misbehaving\"},{\"address\":\"31.172.81.167/32\",\"banned_until\":1564476324,\"ban_created\":1564389924,\"ban_reason\":\"node misbehaving\"},{\"address\":\"45.55.60.24/32\",\"banned_until\":1564439879,\"ban_created\":1564353479,\"ban_reason\":\"node misbehaving\"},{\"address\":\"121.134.105.158/32\",\"banned_until\":1564472797,\"ban_created\":1564386397,\"ban_reason\":\"node misbehaving\"},{\"address\":\"183.15.176.245/32\",\"ba ..."
+      },
+      "text": "> bitcoin-cli listbanned "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listbanned\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listlabels": [
+    {
+      "text": "List all labels"
+    },
+    {
+      "cmd": [
+        "listlabels"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n  \"\"\n]"
+      },
+      "text": "> bitcoin-cli listlabels "
+    },
+    {
+      "text": "List labels that have receiving addresses"
+    },
+    {
+      "cmd": [
+        "listlabels",
+        "receive"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n  \"\"\n]"
+      },
+      "text": "> bitcoin-cli listlabels receive"
+    },
+    {
+      "text": "List labels that have sending addresses"
+    },
+    {
+      "cmd": [
+        "listlabels",
+        "send"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listlabels send"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listlabels\", \"params\": [receive] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listlockunspent": [
+    {
+      "text": "List the unspent transactions"
+    },
+    {
+      "cmd": [
+        "listunspent"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listunspent "
+    },
+    {
+      "text": "Lock an unspent transaction"
+    },
+    {
+      "cmd": [
+        "lockunspent",
+        "false",
+        "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Invalid parameter, unknown transaction"
+      },
+      "text": "> bitcoin-cli lockunspent false \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\""
+    },
+    {
+      "text": "List the locked transactions"
+    },
+    {
+      "cmd": [
+        "listlockunspent"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listlockunspent "
+    },
+    {
+      "text": "Unlock the transaction again"
+    },
+    {
+      "cmd": [
+        "lockunspent",
+        "true",
+        "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Invalid parameter, unknown transaction"
+      },
+      "text": "> bitcoin-cli lockunspent true \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listlockunspent\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listreceivedbyaddress": [
+    {
+      "cmd": [
+        "listreceivedbyaddress"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listreceivedbyaddress "
+    },
+    {
+      "cmd": [
+        "listreceivedbyaddress",
+        "6",
+        "true"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n  {\n    \"address\": \"2MwjVhCL42bRurkUPAVJ2XTqsaqyTxiJ57M\",\n    \"amount\": 0.00000000,\n    \"confirmations\": 0,\n    \"label\": \"\",\n    \"txids\": [\n    ]\n  },\n  {\n    \"address\": \"2MxJKKYdqi3QiB5r92XhGFpLTCqfZvkuQqV\",\n    \"amount\": 0.00000000,\n    \"confirmations\": 0,\n    \"label\": \"\",\n    \"txids\": [\n    ]\n  },\n  {\n    \"address\": \"2Mxvb91qq1W8CKy9J4cWz72MRJ4VKSJaW92\",\n    \"amount\": 0.00000000,\n    \"confirmations\": 0,\n    \"label\": \"\",\n    \"txids\": [\n    ]\n  },\n  {\n    \"address\": \"2MzpVsuxK4SjGioWRkmZzZSMS ..."
+      },
+      "text": "> bitcoin-cli listreceivedbyaddress 6 true"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listreceivedbyaddress\", \"params\": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listreceivedbyaddress\", \"params\": [6, true, true, \"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listreceivedbylabel": [
+    {
+      "cmd": [
+        "listreceivedbylabel"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listreceivedbylabel "
+    },
+    {
+      "cmd": [
+        "listreceivedbylabel",
+        "6",
+        "true"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n  {\n    \"amount\": 0.00000000,\n    \"confirmations\": 0,\n    \"label\": \"\"\n  }\n]"
+      },
+      "text": "> bitcoin-cli listreceivedbylabel 6 true"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listreceivedbylabel\", \"params\": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listsinceblock": [
+    {
+      "cmd": [
+        "listsinceblock"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"transactions\": [\n  ],\n  \"removed\": [\n  ],\n  \"lastblock\": \"5966b883afd6e3b31e0b0f8c48e98cb9cbe5f0bda8a403b0d77665e30300daf9\"\n}"
+      },
+      "text": "> bitcoin-cli listsinceblock "
+    },
+    {
+      "cmd": [
+        "listsinceblock",
+        "000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad",
+        "6"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Block not found"
+      },
+      "text": "> bitcoin-cli listsinceblock \"000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad\" 6"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listsinceblock\", \"params\": [\"000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad\", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listtransactions": [
+    {
+      "text": "List the most recent 10 transactions in the systems"
+    },
+    {
+      "cmd": [
+        "listtransactions"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listtransactions "
+    },
+    {
+      "text": "List transactions 100 to 120"
+    },
+    {
+      "cmd": [
+        "listtransactions",
+        "*",
+        "20",
+        "100"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listtransactions \"*\" 20 100"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listtransactions\", \"params\": [\"*\", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listunspent": [
+    {
+      "cmd": [
+        "listunspent"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listunspent "
+    },
+    {
+      "cmd": [
+        "listunspent",
+        "6",
+        "9999999",
+        "[\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\",\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\"]"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address: 1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg"
+      },
+      "text": "> bitcoin-cli listunspent 6 9999999 \"[\\\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\\\",\\\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\\\"]\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listunspent\", \"params\": [6, 9999999 \"[\\\"1PGFqEzfmQch1gKD3ra4k18PNj3tTUUSqg\\\",\\\"1LtvqCaApEdUGFkpKMM4MstjcaL4dKg8SP\\\"]\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    },
+    {
+      "cmd": [
+        "listunspent",
+        "6",
+        "9999999",
+        "[]",
+        "true",
+        "{ \"minimumAmount\": 0.005 }"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listunspent 6 9999999 '[]' true '{ \"minimumAmount\": 0.005 }'"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listunspent\", \"params\": [6, 9999999, [] , true, { \"minimumAmount\": 0.005 } ] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listwalletdir": [
+    {
+      "cmd": [
+        "listwalletdir"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"wallets\": [\n    {\n      \"name\": \"\"\n    },\n    {\n      \"name\": \"testwallet\"\n    }\n  ]\n}"
+      },
+      "text": "> bitcoin-cli listwalletdir "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listwalletdir\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "listwallets": [
+    {
+      "cmd": [
+        "listwallets"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n  \"\"\n]"
+      },
+      "text": "> bitcoin-cli listwallets "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"listwallets\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "loadwallet": [
+    {
+      "cmd": [
+        "loadwallet",
+        "test.dat"
+      ],
+      "result": {
+        "exit_code": 18,
+        "output": "Wallet test.dat not found."
+      },
+      "text": "> bitcoin-cli loadwallet \"test.dat\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"loadwallet\", \"params\": [\"test.dat\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "lockunspent": [
+    {
+      "text": "List the unspent transactions"
+    },
+    {
+      "cmd": [
+        "listunspent"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listunspent "
+    },
+    {
+      "text": "Lock an unspent transaction"
+    },
+    {
+      "cmd": [
+        "lockunspent",
+        "false",
+        "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Invalid parameter, unknown transaction"
+      },
+      "text": "> bitcoin-cli lockunspent false \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\""
+    },
+    {
+      "text": "List the locked transactions"
+    },
+    {
+      "cmd": [
+        "listlockunspent"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "[\n]"
+      },
+      "text": "> bitcoin-cli listlockunspent "
+    },
+    {
+      "text": "Unlock the transaction again"
+    },
+    {
+      "cmd": [
+        "lockunspent",
+        "true",
+        "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Invalid parameter, unknown transaction"
+      },
+      "text": "> bitcoin-cli lockunspent true \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"lockunspent\", \"params\": [false, \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "logging": [
+    {
+      "cmd": [
+        "logging",
+        "[\"all\"]",
+        "[\"http\"]"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"net\": true,\n  \"tor\": true,\n  \"mempool\": true,\n  \"http\": false,\n  \"bench\": true,\n  \"zmq\": true,\n  \"db\": true,\n  \"rpc\": true,\n  \"estimatefee\": true,\n  \"addrman\": true,\n  \"selectcoins\": true,\n  \"reindex\": true,\n  \"cmpctblock\": true,\n  \"rand\": true,\n  \"prune\": true,\n  \"proxy\": true,\n  \"mempoolrej\": true,\n  \"libevent\": true,\n  \"coindb\": true,\n  \"qt\": true,\n  \"leveldb\": true\n}"
+      },
+      "text": "> bitcoin-cli logging \"[\\\"all\\\"]\" \"[\\\"http\\\"]\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"logging\", \"params\": [[\"all\"], [\"libevent\"]] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "ping": [
+    {
+      "cmd": [
+        "ping"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli ping "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"ping\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "preciousblock": [
+    {
+      "cmd": [
+        "preciousblock",
+        "blockhash"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "blockhash must be of length 64 (not 9, for 'blockhash')"
+      },
+      "text": "> bitcoin-cli preciousblock \"blockhash\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"preciousblock\", \"params\": [\"blockhash\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "prioritisetransaction": [
+    {
+      "cmd": [
+        "prioritisetransaction",
+        "txid",
+        "0.0",
+        "10000"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 4, for 'txid')"
+      },
+      "text": "> bitcoin-cli prioritisetransaction \"txid\" 0.0 10000"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"prioritisetransaction\", \"params\": [\"txid\", 0.0, 10000] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "pruneblockchain": [
+    {
+      "cmd": [
+        "pruneblockchain",
+        "1000"
+      ],
+      "result": {
+        "exit_code": 1,
+        "output": "Cannot prune blocks because node is not in prune mode."
+      },
+      "text": "> bitcoin-cli pruneblockchain 1000"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"pruneblockchain\", \"params\": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "removeprunedfunds": [
+    {
+      "cmd": [
+        "removeprunedfunds",
+        "a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Transaction does not exist in wallet."
+      },
+      "text": "> bitcoin-cli removeprunedfunds \"a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"removeprunedfunds\", \"params\": [\"a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "rescanblockchain": [
+    {
+      "cmd": [
+        "rescanblockchain",
+        "100000",
+        "120000"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "Invalid start_height"
+      },
+      "text": "> bitcoin-cli rescanblockchain 100000 120000"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"rescanblockchain\", \"params\": [100000, 120000] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "savemempool": [
+    {
+      "cmd": [
+        "savemempool"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli savemempool "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"savemempool\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "scantxoutset": [],
+  "sendmany": [
+    {
+      "text": "Send two amounts to two different addresses:"
+    },
+    {
+      "cmd": [
+        "sendmany",
+        "",
+        "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address: 1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+      },
+      "text": "> bitcoin-cli sendmany \"\" \"{\\\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\\\":0.01,\\\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\\\":0.02}\""
+    },
+    {
+      "text": "Send two amounts to two different addresses setting the confirmation and comment:"
+    },
+    {
+      "cmd": [
+        "sendmany",
+        "",
+        "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}",
+        "6",
+        "testing"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address: 1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+      },
+      "text": "> bitcoin-cli sendmany \"\" \"{\\\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\\\":0.01,\\\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\\\":0.02}\" 6 \"testing\""
+    },
+    {
+      "text": "Send two amounts to two different addresses, subtract fee from amount:"
+    },
+    {
+      "cmd": [
+        "sendmany",
+        "",
+        "{\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}",
+        "1",
+        "",
+        "[\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\",\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\"]"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address: 1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX"
+      },
+      "text": "> bitcoin-cli sendmany \"\" \"{\\\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\\\":0.01,\\\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\\\":0.02}\" 1 \"\" \"[\\\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\\\",\\\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\\\"]\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"sendmany\", \"params\": [\"\", {\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"1353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}, 6, \"testing\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "sendrawtransaction": [
+    {
+      "text": "Create a transaction"
+    },
+    {
+      "cmd": [
+        "createrawtransaction",
+        "[{\"txid\" : \"mytxid\",\"vout\":0}]",
+        "{\"myaddress\":0.01}"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli createrawtransaction \"[{\\\"txid\\\" : \\\"mytxid\\\",\\\"vout\\\":0}]\" \"{\\\"myaddress\\\":0.01}\""
+    },
+    {
+      "text": "Sign the transaction, and get back the hex"
+    },
+    {
+      "cmd": [
+        "signrawtransactionwithwallet",
+        "myhex"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli signrawtransactionwithwallet \"myhex\""
+    },
+    {
+      "text": "Send the transaction (signed hex)"
+    },
+    {
+      "cmd": [
+        "sendrawtransaction",
+        "signedhex"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli sendrawtransaction \"signedhex\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"sendrawtransaction\", \"params\": [\"signedhex\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "sendtoaddress": [
+    {
+      "cmd": [
+        "sendtoaddress",
+        "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd",
+        "0.1"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli sendtoaddress \"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 0.1"
+    },
+    {
+      "cmd": [
+        "sendtoaddress",
+        "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd",
+        "0.1",
+        "donation",
+        "seans outpost"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli sendtoaddress \"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 0.1 \"donation\" \"seans outpost\""
+    },
+    {
+      "cmd": [
+        "sendtoaddress",
+        "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd",
+        "0.1",
+        "",
+        "",
+        "true"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli sendtoaddress \"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 0.1 \"\" \"\" true"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"sendtoaddress\", \"params\": [\"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\", 0.1, \"donation\", \"seans outpost\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "setban": [
+    {
+      "cmd": [
+        "setban",
+        "192.168.0.6",
+        "add",
+        "86400"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli setban \"192.168.0.6\" \"add\" 86400"
+    },
+    {
+      "cmd": [
+        "setban",
+        "192.168.0.0/24",
+        "add"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "text": "> bitcoin-cli setban \"192.168.0.0/24\" \"add\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"setban\", \"params\": [\"192.168.0.6\", \"add\", 86400] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "sethdseed": [
+    {
+      "cmd": [
+        "sethdseed"
+      ],
+      "result": {
+        "exit_code": 10,
+        "output": "Cannot set a new HD seed while still in Initial Block Download"
+      },
+      "text": "> bitcoin-cli sethdseed "
+    },
+    {
+      "cmd": [
+        "sethdseed",
+        "false"
+      ],
+      "result": {
+        "exit_code": 10,
+        "output": "Cannot set a new HD seed while still in Initial Block Download"
+      },
+      "text": "> bitcoin-cli sethdseed false"
+    },
+    {
+      "cmd": [
+        "sethdseed",
+        "true",
+        "wifkey"
+      ],
+      "result": {
+        "exit_code": 10,
+        "output": "Cannot set a new HD seed while still in Initial Block Download"
+      },
+      "text": "> bitcoin-cli sethdseed true \"wifkey\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"sethdseed\", \"params\": [true, \"wifkey\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "setlabel": [
+    {
+      "cmd": [
+        "setlabel",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "tabby"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid Bitcoin address"
+      },
+      "text": "> bitcoin-cli setlabel \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" \"tabby\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"setlabel\", \"params\": [\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\", \"tabby\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "setnetworkactive": [],
+  "settxfee": [
+    {
+      "cmd": [
+        "settxfee",
+        "0.00001"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "true"
+      },
+      "text": "> bitcoin-cli settxfee 0.00001"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"settxfee\", \"params\": [0.00001] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "signmessage": [
+    {
+      "text": "Unlock the wallet for 30 seconds"
+    },
+    {
+      "cmd": [
+        "walletpassphrase",
+        "mypassphrase",
+        "30"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an unencrypted wallet, but walletpassphrase was called."
+      },
+      "text": "> bitcoin-cli walletpassphrase \"mypassphrase\" 30"
+    },
+    {
+      "text": "Create the signature"
+    },
+    {
+      "cmd": [
+        "signmessage",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "my message"
+      ],
+      "result": {
+        "exit_code": 3,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli signmessage \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" \"my message\""
+    },
+    {
+      "text": "Verify the signature"
+    },
+    {
+      "cmd": [
+        "verifymessage",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "signature",
+        "my message"
+      ],
+      "result": {
+        "exit_code": 3,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli verifymessage \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" \"signature\" \"my message\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"signmessage\", \"params\": [\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\", \"my message\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "signmessagewithprivkey": [
+    {
+      "text": "Create the signature"
+    },
+    {
+      "cmd": [
+        "signmessagewithprivkey",
+        "privkey",
+        "my message"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid private key"
+      },
+      "text": "> bitcoin-cli signmessagewithprivkey \"privkey\" \"my message\""
+    },
+    {
+      "text": "Verify the signature"
+    },
+    {
+      "cmd": [
+        "verifymessage",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "signature",
+        "my message"
+      ],
+      "result": {
+        "exit_code": 3,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli verifymessage \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" \"signature\" \"my message\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"signmessagewithprivkey\", \"params\": [\"privkey\", \"my message\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "signrawtransactionwithkey": [
+    {
+      "cmd": [
+        "signrawtransactionwithkey",
+        "myhex"
+      ],
+      "result": {
+        "exit_code": 1,
+        "output": "signrawtransactionwithkey \"hexstring\" [\"privatekey\",...] ( [{\"txid\":\"hex\",\"vout\":n,\"scriptPubKey\":\"hex\",\"redeemScript\":\"hex\",\"witnessScript\":\"hex\",\"amount\":amount},...] \"sighashtype\" )\n\nSign inputs for raw transaction (serialized, hex-encoded).\nThe second argument is an array of base58-encoded private\nkeys that will be the only keys used to sign the transaction.\nThe third optional argument (may be null) is an array of previous transaction outputs that\nthis transaction depends on but may not yet be in the block chain.\n\nArguments:\n1. hexstring                        (string, required) The transaction hex string\n2. privkeys                         (json array, required) A json array of base58-encoded private keys for signing\n     [\n       \"privatekey\",                (string) private key in base58-encoding\n       ...\n     ]\n3. prevtxs                          (json array, optional) A json array of previous dependent transaction outputs\n     [\n       {                            (json object)\n         \"txid\": \"hex\",             (string, required) The transaction id\n         \"vout\": n,                 (numeric, required) The output number\n         \"scriptPubKey\": \"hex\",     (string, required) script key\n         \"redeemScript\": \"hex\",     (string) (required for P2SH) redeem script\n         \"witnessScript\": \"hex\",    (string) (required for P2WSH or P2SH-P2WSH) witness script\n         \"amount\": amount,          (numeric or string, required) The amount spent\n       },\n       ...\n     ]\n4. sighashtype                      (string, optional, default=ALL) The signature hash type. Must be one of:\n                                    \"ALL\"\n                                    \"NONE\"\n                                    \"SINGLE\"\n                                    \"ALL|ANYONECANPAY\"\n                                    \"NONE|ANYONECANPAY\"\n                                    \"SINGLE|ANYONECANPAY\"\n                                    \n\nResult:\n{\n  \"hex\" : \"value\",                  (string) The hex-encoded raw transaction with signature(s)\n  \"complete\" : true|false,          (boolean) If the transaction has a complete set of signatures\n  \"errors\" : [                      (json array of objects) Script verification errors (if there are any)\n    {\n      \"txid\" : \"hash\",              (string) The hash of the referenced, previous transaction\n      \"vout\" : n,                   (numeric) The index of the output to spent and used as input\n      \"scriptSig\" : \"hex\",          (string) The hex-encoded signature script\n      \"sequence\" : n,               (numeric) Script sequence number\n      \"error\" : \"text\"              (string) Verification or signing error related to the input\n    }\n    ,...\n  ]\n}\n\nExamples:\n> bitcoin-cli signrawtransactionwithkey \"myhex\"\n> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"signrawtransactionwithkey\", \"params\": [\"myhex\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+      },
+      "text": "> bitcoin-cli signrawtransactionwithkey \"myhex\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"signrawtransactionwithkey\", \"params\": [\"myhex\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "signrawtransactionwithwallet": [
+    {
+      "cmd": [
+        "signrawtransactionwithwallet",
+        "myhex"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli signrawtransactionwithwallet \"myhex\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"signrawtransactionwithwallet\", \"params\": [\"myhex\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "stop": [],
+  "submitblock": [
+    {
+      "cmd": [
+        "submitblock",
+        "mydata"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "Block decode failed"
+      },
+      "text": "> bitcoin-cli submitblock \"mydata\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"submitblock\", \"params\": [\"mydata\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "submitheader": [
+    {
+      "cmd": [
+        "submitheader",
+        "aabbcc"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "Block header decode failed"
+      },
+      "text": "> bitcoin-cli submitheader \"aabbcc\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"submitheader\", \"params\": [\"aabbcc\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "testmempoolaccept": [
+    {
+      "text": "Create a transaction"
+    },
+    {
+      "cmd": [
+        "createrawtransaction",
+        "[{\"txid\" : \"mytxid\",\"vout\":0}]",
+        "{\"myaddress\":0.01}"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 6, for 'mytxid')"
+      },
+      "text": "> bitcoin-cli createrawtransaction \"[{\\\"txid\\\" : \\\"mytxid\\\",\\\"vout\\\":0}]\" \"{\\\"myaddress\\\":0.01}\""
+    },
+    {
+      "text": "Sign the transaction, and get back the hex"
+    },
+    {
+      "cmd": [
+        "signrawtransactionwithwallet",
+        "myhex"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli signrawtransactionwithwallet \"myhex\""
+    },
+    {
+      "text": "Test acceptance of the transaction (signed hex)"
+    },
+    {
+      "cmd": [
+        "testmempoolaccept",
+        "[\"signedhex\"]"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed"
+      },
+      "text": "> bitcoin-cli testmempoolaccept [\"signedhex\"]"
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"testmempoolaccept\", \"params\": [[\"signedhex\"]] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "unloadwallet": [
+    {
+      "cmd": [
+        "unloadwallet",
+        "wallet_name"
+      ],
+      "result": {
+        "exit_code": 18,
+        "output": "Requested wallet does not exist or is not loaded"
+      },
+      "text": "> bitcoin-cli unloadwallet wallet_name"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"unloadwallet\", \"params\": [wallet_name] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "uptime": [
+    {
+      "cmd": [
+        "uptime"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "14301"
+      },
+      "text": "> bitcoin-cli uptime "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"uptime\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "utxoupdatepsbt": [
+    {
+      "cmd": [
+        "utxoupdatepsbt",
+        "psbt"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed CDataStream::read(): end of data: unspecified iostream_category error"
+      },
+      "text": "> bitcoin-cli utxoupdatepsbt \"psbt\""
+    }
+  ],
+  "validateaddress": [
+    {
+      "cmd": [
+        "validateaddress",
+        "1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "{\n  \"isvalid\": false\n}"
+      },
+      "text": "> bitcoin-cli validateaddress \"1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"validateaddress\", \"params\": [\"1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "verifychain": [
+    {
+      "cmd": [
+        "verifychain"
+      ],
+      "result": {
+        "exit_code": 0,
+        "output": "true"
+      },
+      "text": "> bitcoin-cli verifychain "
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"verifychain\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "verifymessage": [
+    {
+      "text": "Unlock the wallet for 30 seconds"
+    },
+    {
+      "cmd": [
+        "walletpassphrase",
+        "mypassphrase",
+        "30"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an unencrypted wallet, but walletpassphrase was called."
+      },
+      "text": "> bitcoin-cli walletpassphrase \"mypassphrase\" 30"
+    },
+    {
+      "text": "Create the signature"
+    },
+    {
+      "cmd": [
+        "signmessage",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "my message"
+      ],
+      "result": {
+        "exit_code": 3,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli signmessage \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" \"my message\""
+    },
+    {
+      "text": "Verify the signature"
+    },
+    {
+      "cmd": [
+        "verifymessage",
+        "1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX",
+        "signature",
+        "my message"
+      ],
+      "result": {
+        "exit_code": 3,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli verifymessage \"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\" \"signature\" \"my message\""
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"verifymessage\", \"params\": [\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\", \"signature\", \"my message\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "verifytxoutproof": [],
+  "walletcreatefundedpsbt": [
+    {
+      "text": "Create a transaction with no inputs"
+    },
+    {
+      "cmd": [
+        "walletcreatefundedpsbt",
+        "[{\"txid\":\"myid\",\"vout\":0}]",
+        "[{\"data\":\"00010203\"}]"
+      ],
+      "result": {
+        "exit_code": 8,
+        "output": "txid must be of length 64 (not 4, for 'myid')"
+      },
+      "text": "> bitcoin-cli walletcreatefundedpsbt \"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"[{\\\"data\\\":\\\"00010203\\\"}]\""
+    }
+  ],
+  "walletlock": [
+    {
+      "text": "Set the passphrase for 2 minutes to perform a transaction"
+    },
+    {
+      "cmd": [
+        "walletpassphrase",
+        "my pass phrase",
+        "120"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an unencrypted wallet, but walletpassphrase was called."
+      },
+      "text": "> bitcoin-cli walletpassphrase \"my pass phrase\" 120"
+    },
+    {
+      "text": "Perform a send (requires passphrase set)"
+    },
+    {
+      "cmd": [
+        "sendtoaddress",
+        "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd",
+        "1.0"
+      ],
+      "result": {
+        "exit_code": 5,
+        "output": "Invalid address"
+      },
+      "text": "> bitcoin-cli sendtoaddress \"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 1.0"
+    },
+    {
+      "text": "Clear the passphrase since we are done before 2 minutes is up"
+    },
+    {
+      "cmd": [
+        "walletlock"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an unencrypted wallet, but walletlock was called."
+      },
+      "text": "> bitcoin-cli walletlock "
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"walletlock\", \"params\": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "walletpassphrase": [
+    {
+      "text": "Unlock the wallet for 60 seconds"
+    },
+    {
+      "cmd": [
+        "walletpassphrase",
+        "my pass phrase",
+        "60"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an unencrypted wallet, but walletpassphrase was called."
+      },
+      "text": "> bitcoin-cli walletpassphrase \"my pass phrase\" 60"
+    },
+    {
+      "text": "Lock the wallet again (before 60 seconds)"
+    },
+    {
+      "cmd": [
+        "walletlock"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an unencrypted wallet, but walletlock was called."
+      },
+      "text": "> bitcoin-cli walletlock "
+    },
+    {
+      "text": "As a JSON-RPC call"
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"walletpassphrase\", \"params\": [\"my pass phrase\", 60] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "walletpassphrasechange": [
+    {
+      "cmd": [
+        "walletpassphrasechange",
+        "old one",
+        "new one"
+      ],
+      "result": {
+        "exit_code": 15,
+        "output": "Error: running with an unencrypted wallet, but walletpassphrasechange was called."
+      },
+      "text": "> bitcoin-cli walletpassphrasechange \"old one\" \"new one\""
+    },
+    {
+      "text": "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"walletpassphrasechange\", \"params\": [\"old one\", \"new one\"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/"
+    }
+  ],
+  "walletprocesspsbt": [
+    {
+      "cmd": [
+        "walletprocesspsbt",
+        "psbt"
+      ],
+      "result": {
+        "exit_code": 22,
+        "output": "TX decode failed CDataStream::read(): end of data: unspecified iostream_category error"
+      },
+      "text": "> bitcoin-cli walletprocesspsbt \"psbt\""
+    }
+  ]
+}
