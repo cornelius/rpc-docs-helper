@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin RPC</title>
+    <style>
+      body {
+        background-color: whitesmoke;
+        margin: 0;
+      }
+      .nav {
+        float: left;
+        padding: 16px;
+      }
+      .content {
+        padding: 16px;
+      }
+      h2:first-child {
+        margin-top: 0;
+      }
+      .header {
+        background-color: #FF9500;
+        color: white;
+        padding: 16px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid #ddd;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Bitcoin RPC</h1>
+    </div>
+    <div class="nav"><h2>Blockchain</h2>
+<ul>
+<li><a href='/cmd/getblock'>getblock</a></li>
+<li><a href='/cmd/getblockhash'>getblockhash</a></li>
+</ul>
+<h2>Control</h2>
+<ul>
+<li><a href='/cmd/getrpcinfo'>getrpcinfo</a></li>
+</ul>
+</div>
+    <div class="content"><h2>getblockstats</h2>
+<p><em>getblockstats hash_or_height ( stats )</em></p>
+<p>Compute per block statistics for a given window. All amounts are in satoshis.
+
+It won't work for some heights with pruning.
+
+It won't work without -txindex for utxo_size_inc, *fee or *feerate stats.
+</p>
+<h3>Arguments</h3>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>hash_or_height</td><td>string or numeric, required</td><td>The block hash or height of the target block</td></tr>
+<tr><td>stats</td><td>json array, optional, default=all values</td><td>Values to plot (see result below)</td></tr>
+</table>
+<h3>Result </h4>
+<pre>
+  {                           (json object)
+    "avgfee": xxxxx,          (numeric) Average fee in the block
+    "avgfeerate": xxxxx,      (numeric) Average feerate (in satoshis per virtual byte)
+    "avgtxsize": xxxxx,       (numeric) Average transaction size
+    "blockhash": xxxxx,       (string) The block hash (to check for potential reorgs)
+    "feerate_percentiles": [  (array of numeric) Feerates at the 10th, 25th, 50th, 75th, and 90th percentile weight unit (in satoshis per virtual byte)
+        "10th_percentile_feerate",      (numeric) The 10th percentile feerate
+        "25th_percentile_feerate",      (numeric) The 25th percentile feerate
+        "50th_percentile_feerate",      (numeric) The 50th percentile feerate
+        "75th_percentile_feerate",      (numeric) The 75th percentile feerate
+        "90th_percentile_feerate",      (numeric) The 90th percentile feerate
+    ],
+    "height": xxxxx,          (numeric) The height of the block
+    "ins": xxxxx,             (numeric) The number of inputs (excluding coinbase)
+    "maxfee": xxxxx,          (numeric) Maximum fee in the block
+    "maxfeerate": xxxxx,      (numeric) Maximum feerate (in satoshis per virtual byte)
+    "maxtxsize": xxxxx,       (numeric) Maximum transaction size
+    "medianfee": xxxxx,       (numeric) Truncated median fee in the block
+    "mediantime": xxxxx,      (numeric) The block median time past
+    "mediantxsize": xxxxx,    (numeric) Truncated median transaction size
+    "minfee": xxxxx,          (numeric) Minimum fee in the block
+    "minfeerate": xxxxx,      (numeric) Minimum feerate (in satoshis per virtual byte)
+    "mintxsize": xxxxx,       (numeric) Minimum transaction size
+    "outs": xxxxx,            (numeric) The number of outputs
+    "subsidy": xxxxx,         (numeric) The block subsidy
+    "swtotal_size": xxxxx,    (numeric) Total size of all segwit transactions
+    "swtotal_weight": xxxxx,  (numeric) Total weight of all segwit transactions divided by segwit scale factor (4)
+    "swtxs": xxxxx,           (numeric) The number of segwit transactions
+    "time": xxxxx,            (numeric) The block time
+    "total_out": xxxxx,       (numeric) Total amount in all outputs (excluding coinbase and thus reward [ie subsidy + totalfee])
+    "total_size": xxxxx,      (numeric) Total size of all non-coinbase transactions
+    "total_weight": xxxxx,    (numeric) Total weight of all non-coinbase transactions divided by segwit scale factor (4)
+    "totalfee": xxxxx,        (numeric) The fee total
+    "txs": xxxxx,             (numeric) The number of transactions (excluding coinbase)
+    "utxo_increase": xxxxx,   (numeric) The increase/decrease in the number of unspent outputs
+    "utxo_size_inc": xxxxx,   (numeric) The increase/decrease in size for the utxo index (not discounting op_return and similar)
+  }
+</pre>
+<h3>Examples</h3><p>> bitcoin-cli getblockstats 1000 '["minfeerate","avgfeerate"]'</p>
+<hr/><form action='/cmd/getblockstats' method='post'>
+<input type='hidden' name='cmd' value='getblockstats'>
+hash_or_height (The block hash or height of the target block)<br>
+<input type='text' name='arg-0'><br>
+stats (Values to plot (see result below))<br>
+<input type='text' name='arg-1'><br>
+<input type='submit' value='Run Command'>
+</form>
+</div>
+  </body>
+</html>

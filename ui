@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+from bottle import route, get, post, run, request
+
+from ui_controller import UiController
+
+controller = UiController()
+
+@route('/')
+def index():
+    return controller.index()
+
+@get('/cmd/:cmd')
+def cmd(cmd):
+    return controller.cmd(cmd)
+
+@post('/cmd/:cmd')
+def execute(cmd):
+    return controller.cmd(cmd, response=request.forms)
+
+run(host='localhost', port=8008)

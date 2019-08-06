@@ -15,3 +15,11 @@ class CliCaller:
         result = subprocess.check_output([str(self.cli.cli_path)] + self.cli.cli_args +
                                 arg)
         return result.rstrip().decode("utf-8")
+
+    def call(self, cmd):
+        try:
+            result = subprocess.check_output([str(self.cli.cli_path)] + self.cli.cli_args +
+                                    cmd)
+            return result.rstrip().decode("utf-8")
+        except:
+            return "Error executing command '" + " ".join(cmd) + "'"
